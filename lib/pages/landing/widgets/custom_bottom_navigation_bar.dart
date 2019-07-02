@@ -12,6 +12,13 @@ class CustomBottomNavigationBar extends StatefulWidget {
 class _BottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int currentIndex = 0;
 
+  final List<BottomNavigationBarItem> tabs = [
+    _buildBottomNavigationBarItem('Remote', Icons.keyboard),
+    _buildBottomNavigationBarItem('Apps', Icons.apps),
+    _buildBottomNavigationBarItem('Art', Icons.blur_linear),
+    _buildBottomNavigationBarItem('Mono', Icons.picture_in_picture),
+  ];
+
   _BottomNavigationBarState();
 
   @override
@@ -21,14 +28,9 @@ class _BottomNavigationBarState extends State<CustomBottomNavigationBar> {
       type: BottomNavigationBarType.fixed,
       onTap: (index) {
         _updateCurrentIndex(index);
-        widget.onTab(index);
+        _sendCurrentIndexToHostWidget(index);
       },
-      items: <BottomNavigationBarItem>[
-        _bottomNavigationBarItem('Remote', Icons.keyboard),
-        _bottomNavigationBarItem('Apps', Icons.apps),
-        _bottomNavigationBarItem('Art', Icons.blur_linear),
-        _bottomNavigationBarItem('Mono', Icons.picture_in_picture),
-      ],
+      items: tabs,
     );
   }
 
@@ -38,18 +40,14 @@ class _BottomNavigationBarState extends State<CustomBottomNavigationBar> {
     });
   }
 
-  BottomNavigationBarItem _bottomNavigationBarItem(
-      String title, IconData iconData) {
-    return BottomNavigationBarItem(
-      icon: Icon(
-        iconData,
-        color: Colors.black,
-      ),
-      activeIcon: Icon(
-        iconData,
-        color: Colors.blue,
-      ),
-      title: Text(title),
-    );
-  }
+  void _sendCurrentIndexToHostWidget(int index) => widget.onTab(index);
+}
+
+BottomNavigationBarItem _buildBottomNavigationBarItem(
+    String title, IconData iconData) {
+  return BottomNavigationBarItem(
+    title: Text(title),
+    icon: Icon(iconData, color: Colors.black),
+    activeIcon: Icon(iconData, color: Colors.blue),
+  );
 }
