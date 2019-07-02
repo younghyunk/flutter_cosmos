@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_cosmos/pages/applauncher/widget/planet_list.dart';
+import 'package:flutter_cosmos/pages/applauncher/widget/app_preview_list.dart';
 import 'package:meta/meta.dart';
 import 'dart:convert' show base64;
 
@@ -39,7 +39,7 @@ class _AppLauncherPageState extends State<AppLauncherPage> {
                     Image.memory(base64.decode(img[index]), fit: BoxFit.cover),
                   ),
                 ),
-            pageBuilder: (context, index) => PlanetList(),
+            pageBuilder: (context, index) => AppPreviewList(),
             onPositionChange: (index) {
               initPosition = index;
             },

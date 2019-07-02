@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cosmos/pages/applauncher/applauncher_page.dart';
 import 'package:flutter_cosmos/pages/artwork/artwork_page.dart';
-import 'package:flutter_cosmos/pages/landing/app_background.dart';
+import 'package:flutter_cosmos/pages/landing/widgets/app_background.dart';
+import 'package:flutter_cosmos/pages/landing/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter_cosmos/pages/monophoto/monophoto_page.dart';
 import 'package:flutter_cosmos/pages/remotecontrol/remotecontrol_page.dart';
 
@@ -28,47 +29,17 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: <Widget>[
-          AppBackground(),
-          Center(
-            child: pages[currentTab],
-          )
-        ],
+        children: <Widget>[AppBackground(), Center(child: _getCurrentPage())],
       ),
-      bottomNavigationBar: _buildBottomNavigationBar(),
+      bottomNavigationBar: CustomBottomNavigationBar(onTab: _updateCurrentTab),
     );
   }
 
-  BottomNavigationBar _buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      currentIndex: currentTab,
-      type: BottomNavigationBarType.fixed,
-      onTap: (index) {
-        setState(() {
-          currentTab = index;
-        });
-      },
-      items: <BottomNavigationBarItem>[
-        _bottomNavigationBarItem('Remote', Icons.keyboard),
-        _bottomNavigationBarItem('Apps', Icons.apps),
-        _bottomNavigationBarItem('Art', Icons.blur_linear),
-        _bottomNavigationBarItem('Mono', Icons.picture_in_picture),
-      ],
-    );
+  void _updateCurrentTab(index) {
+    setState(() {
+      currentTab = index;
+    });
   }
 
-  BottomNavigationBarItem _bottomNavigationBarItem(
-      String title, IconData iconData) {
-    return BottomNavigationBarItem(
-      icon: Icon(
-        iconData,
-        color: Colors.black,
-      ),
-      activeIcon: Icon(
-        iconData,
-        color: Colors.blue,
-      ),
-      title: Text(title),
-    );
-  }
+  Widget _getCurrentPage() => pages[currentTab];
 }

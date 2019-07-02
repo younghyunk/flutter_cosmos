@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cosmos/pages/applauncher/model/planet.dart';
 import 'package:flutter_cosmos/pages/applauncher/widget/theme.dart' as Theme;
 
-class PlanetRow extends StatelessWidget {
+class AppPreviewListTile extends StatelessWidget {
   final Planet planet;
 
-  PlanetRow(this.planet);
+  AppPreviewListTile(this.planet);
 
   @override
   Widget build(BuildContext context) {
