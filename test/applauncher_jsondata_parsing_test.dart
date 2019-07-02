@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_cosmos/pages/applauncher/model/app_tile.dart';
+import 'package:flutter_cosmos/pages/applauncher/models/app_tile.dart';
 import 'package:test/test.dart';
 
 void main() {

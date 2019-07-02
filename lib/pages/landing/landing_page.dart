@@ -21,7 +21,7 @@ class _LandingPageState extends State<LandingPage> {
     MonoPhotoPage(),
   ];
 
-  final List<BottomNavigationBarItem> tabs = [
+  final List<BottomNavigationBarItem> bottomNavigationTabList = [
     _buildBottomNavigationBarItem('Remote', Icons.keyboard),
     _buildBottomNavigationBarItem('Apps', Icons.apps),
     _buildBottomNavigationBarItem('Art', Icons.blur_linear),
@@ -37,13 +37,19 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: <Widget>[AppBackground(), Center(child: _getCurrentPage())],
+        children: <Widget>[
+          AppBackground(),
+          Center(child: _getCurrentPage()),
+        ],
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(tabs: tabs, onTab: _updateCurrentTab),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        tabs: bottomNavigationTabList,
+        onTab: _onTabOfBottomNavigationBar,
+      ),
     );
   }
 
-  void _updateCurrentTab(index) {
+  void _onTabOfBottomNavigationBar(index) {
     setState(() {
       currentTab = index;
     });
