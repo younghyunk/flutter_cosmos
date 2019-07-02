@@ -29,18 +29,21 @@ class _AppLauncherPageState extends State<AppLauncherPage> {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-        child: CustomTabView(
-          initPosition: initPosition,
-          itemCount: img.length,
-          tabBuilder: (context, index) => Tab(
-                icon: getClipRectImage(
-                  Image.memory(base64.decode(img[index]), fit: BoxFit.cover),
+        child: Opacity(
+          opacity: 0.75,
+          child: CustomTabView(
+            initPosition: initPosition,
+            itemCount: img.length,
+            tabBuilder: (context, index) => Tab(
+                  icon: getClipRectImage(
+                    Image.memory(base64.decode(img[index]), fit: BoxFit.cover),
+                  ),
                 ),
-              ),
-          pageBuilder: (context, index) => PlanetList(),
-          onPositionChange: (index) {
-            initPosition = index;
-          },
+            pageBuilder: (context, index) => PlanetList(),
+            onPositionChange: (index) {
+              initPosition = index;
+            },
+          ),
         ),
       ),
     );
