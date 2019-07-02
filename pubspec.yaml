@@ -49,7 +49,6 @@ flutter:
     - assets/img/moon.png
     - assets/img/earth.png
     - assets/img/mercury.png
-    - assets/data/applist.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

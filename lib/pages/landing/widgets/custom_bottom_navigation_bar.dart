@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   final ValueChanged<int> onTab;
+  final List<BottomNavigationBarItem> tabs;
 
-  CustomBottomNavigationBar({@required this.onTab});
+  CustomBottomNavigationBar({@required this.tabs, @required this.onTab});
 
   @override
   _BottomNavigationBarState createState() => _BottomNavigationBarState();
@@ -11,14 +12,6 @@ class CustomBottomNavigationBar extends StatefulWidget {
 
 class _BottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int currentIndex = 0;
-
-  final List<BottomNavigationBarItem> tabs = [
-    _buildBottomNavigationBarItem('Remote', Icons.keyboard),
-    _buildBottomNavigationBarItem('Apps', Icons.apps),
-    _buildBottomNavigationBarItem('Art', Icons.blur_linear),
-    _buildBottomNavigationBarItem('Mono', Icons.picture_in_picture),
-  ];
-
   _BottomNavigationBarState();
 
   @override
@@ -30,7 +23,7 @@ class _BottomNavigationBarState extends State<CustomBottomNavigationBar> {
         _updateCurrentIndex(index);
         _sendCurrentIndexToHostWidget(index);
       },
-      items: tabs,
+      items: widget.tabs,
     );
   }
 
@@ -41,13 +34,4 @@ class _BottomNavigationBarState extends State<CustomBottomNavigationBar> {
   }
 
   void _sendCurrentIndexToHostWidget(int index) => widget.onTab(index);
-}
-
-BottomNavigationBarItem _buildBottomNavigationBarItem(
-    String title, IconData iconData) {
-  return BottomNavigationBarItem(
-    title: Text(title),
-    icon: Icon(iconData, color: Colors.black),
-    activeIcon: Icon(iconData, color: Colors.blue),
-  );
 }

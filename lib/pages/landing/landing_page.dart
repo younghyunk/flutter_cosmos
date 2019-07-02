@@ -13,11 +13,19 @@ class LandingPage extends StatefulWidget {
 
 class _LandingPageState extends State<LandingPage> {
   int currentTab = 0;
-  List<Widget> pages = [
+
+  final List<Widget> pages = [
     RemoteControlPage(),
     AppLauncherPage(),
     ArtWorkPage(),
     MonoPhotoPage(),
+  ];
+
+  final List<BottomNavigationBarItem> tabs = [
+    _buildBottomNavigationBarItem('Remote', Icons.keyboard),
+    _buildBottomNavigationBarItem('Apps', Icons.apps),
+    _buildBottomNavigationBarItem('Art', Icons.blur_linear),
+    _buildBottomNavigationBarItem('Mono', Icons.picture_in_picture),
   ];
 
   @override
@@ -31,7 +39,7 @@ class _LandingPageState extends State<LandingPage> {
       body: Stack(
         children: <Widget>[AppBackground(), Center(child: _getCurrentPage())],
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(onTab: _updateCurrentTab),
+      bottomNavigationBar: CustomBottomNavigationBar(tabs: tabs, onTab: _updateCurrentTab),
     );
   }
 
@@ -42,4 +50,13 @@ class _LandingPageState extends State<LandingPage> {
   }
 
   Widget _getCurrentPage() => pages[currentTab];
+}
+
+BottomNavigationBarItem _buildBottomNavigationBarItem(
+    String title, IconData iconData) {
+  return BottomNavigationBarItem(
+    title: Text(title),
+    icon: Icon(iconData, color: Colors.black),
+    activeIcon: Icon(iconData, color: Colors.blue),
+  );
 }
