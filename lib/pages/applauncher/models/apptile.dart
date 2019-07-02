@@ -1,4 +1,4 @@
-import 'package:flutter_cosmos/pages/applauncher/models/app_preview_category.dart';
+import 'package:flutter_cosmos/pages/applauncher/models/apppreview_category.dart';
 import 'package:meta/meta.dart';
 
 class AppTileList {

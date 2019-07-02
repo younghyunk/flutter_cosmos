@@ -1,7 +1,7 @@
 
 import 'dart:ui';
 
-import 'package:flutter_cosmos/pages/applauncher/models/app_tile.dart';
+import 'package:flutter_cosmos/pages/applauncher/models/apptile.dart';
 
 abstract class AppLauncherDataSource {
   Stream<AppTileList> getAppTileList();

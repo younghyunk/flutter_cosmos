@@ -1,4 +1,4 @@
-import 'package:flutter_cosmos/pages/applauncher/model/app_preview_category_item.dart';
+import 'package:flutter_cosmos/pages/applauncher/models/apppreview_category_item.dart';
 import 'package:meta/meta.dart';
 
 class AppPreviewCategoryList {
