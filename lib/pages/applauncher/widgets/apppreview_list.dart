@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cosmos/pages/applauncher/model/planets.dart';
-import 'package:flutter_cosmos/pages/applauncher/widget/app_preview_list_tile.dart';
+import 'package:flutter_cosmos/pages/applauncher/models/planets.dart';
+import 'package:flutter_cosmos/pages/applauncher/widgets/apppreview_list_tile.dart';
 
 class AppPreviewList extends StatelessWidget {
   @override

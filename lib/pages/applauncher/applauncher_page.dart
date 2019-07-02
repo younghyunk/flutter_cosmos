@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_cosmos/pages/applauncher/widgets/app_preview_list.dart';
+import 'package:flutter_cosmos/pages/applauncher/widgets/apppreview_list.dart';
 import 'package:meta/meta.dart';
 import 'dart:convert' show base64;
 

@@ -1,4 +1,4 @@
-import 'package:flutter_cosmos/pages/applauncher/model/planet.dart';
+import 'package:flutter_cosmos/pages/applauncher/models/planet.dart';
 
 class PlanetDao {
 

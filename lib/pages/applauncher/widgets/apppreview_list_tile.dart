@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cosmos/pages/applauncher/model/planet.dart';
-import 'package:flutter_cosmos/pages/applauncher/widget/theme.dart' as Theme;
+import 'package:flutter_cosmos/pages/applauncher/models/planet.dart';
+import 'package:flutter_cosmos/pages/applauncher/widgets/theme.dart' as Theme;
 
 class AppPreviewListTile extends StatelessWidget {
   final Planet planet;
